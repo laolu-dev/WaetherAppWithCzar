@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_app_with_czar/widgets/bottom_nav_bar.dart';
 
 import '../resources/constants.dart';
 import '../resources/strings.dart';
 import '../widgets/notifications.dart';
 import '../widgets/temperature_card.dart';
-import '../widgets/utility_button.dart';
+import '../widgets/custom_button.dart';
 
 class ExploreScreen extends StatefulWidget {
   static const String id = '/explore_screen';
@@ -20,36 +21,35 @@ class _ExploreScreenState extends State<ExploreScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const NavBar(),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 5),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [UtilityButton(), NotifcationWidget()],
+                children: const [CustomBackButton(), NotifcationWidget()],
               ),
               const SizedBox(height: 19),
-              Flexible(
-                child: TextField(
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 20),
-                    prefixIcon: const Icon(CupertinoIcons.search),
-                    prefixIconColor: const Color.fromRGBO(160, 159, 159, 1),
-                    suffixIcon: verticalSwap(),
-                    hintText: 'Search Location....',
-                    hintStyle: const TextStyle(
-                        color: Color.fromRGBO(160, 159, 159, 1),
-                        fontWeight: FontWeight.w500,
-                        fontSize: 12),
-                    filled: true,
-                    fillColor: const Color(0xFFEBEBEC),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(14),
-                    ),
+              TextField(
+                decoration: InputDecoration(
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                  prefixIcon: const Icon(CupertinoIcons.search),
+                  prefixIconColor: const Color.fromRGBO(160, 159, 159, 1),
+                  suffixIcon: verticalSwap(),
+                  hintText: 'Search Location....',
+                  hintStyle: const TextStyle(
+                      color: Color.fromRGBO(160, 159, 159, 1),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12),
+                  filled: true,
+                  fillColor: const Color(0xFFEBEBEC),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(14),
                   ),
                 ),
               ),

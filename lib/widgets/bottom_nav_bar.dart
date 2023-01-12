@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app_with_czar/screens/explore_screen.dart';
 
+import '../resources/strings.dart';
+import '../screens/home_screen.dart';
+
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
 
@@ -21,22 +24,20 @@ class _NavBarState extends State<NavBar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.home_filled, size: 38),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, HomeScreen.id),
+            child: Image.asset(Res.homeS, width: 32),
           ),
-          IconButton(
-            onPressed: () => Navigator.of(context).pushNamed(ExploreScreen.id),
-            icon: const Icon(Icons.location_pin, size: 38),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, ExploreScreen.id),
+            child: Image.asset(Res.exploreU, width: 32),
           ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.notes, size: 38),
+          GestureDetector(
+            child: Image.asset(Res.items, width: 32),
           ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.person, size: 38),
-          )
+          GestureDetector(
+            child: Image.asset(Res.profile, width: 32),
+          ),
         ],
       ),
     );
